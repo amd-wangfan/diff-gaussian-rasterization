@@ -14,7 +14,7 @@ git clone --recursive https://github.com/coder-bryan-123/diff-gaussian-rasteriza
 cd diff-gaussian-rasterization
 pip insatll -e .
 ```
-## Usage:
+## Test:
 ```
 python tests/forward.py
 ```
