@@ -53,8 +53,13 @@ class TestGaussianRasterization(unittest.TestCase):
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
     out_file_path = os.path.join(current_dir, 'golden.pt')
-    if not torch.version.hip:
-      torch.save({'color': color.cpu(), 'radii': radii.cpu()}, out_file_path)
+    if not os.path.exists(out_file_path):
+      if not torch.version.hip:
+        print("[INFO] saving golden result with cuda.")
+        torch.save({'color': color.cpu(), 'radii': radii.cpu()}, out_file_path)
+      else:
+        print("[ERROR] File not exist!")
+        self.assertTrue(0)
     else:
       data = torch.load(out_file_path)
       reference_color = data['color']
