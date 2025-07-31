@@ -16,7 +16,7 @@ pip insatll -e .
 ```
 ## Test:
 ```
-python tests/forward.py
+python tests/test_forward.py
 ```
 
 <section class="section" id="BibTeX">
